@@ -31,7 +31,26 @@
 <script src="<?= base_url('assets/dashboard') ?>/plugins/raphael/raphael.min.js"></script>
 <script src="<?= base_url('assets/dashboard') ?>/plugins/jquery-mapael/jquery.mapael.min.js"></script>
 <script src="<?= base_url('assets/dashboard') ?>/plugins/jquery-mapael/maps/usa_states.min.js"></script>
+<script src="<?= base_url('assets/dashboard') ?>/plugins/jquery/jquery.js"></script>
 <!-- ChartJS -->
+<script>
+    $('.lihat-gambar').click(function() {
+        const id = $(this).data("id");
+
+        $.ajax({
+            url: "<?= base_url() ?>dashboard/admin/admin/getBukuById",
+            data: {
+                "id": id,
+            },
+            dataType: "json",
+            type: "get",
+            success: function(data) {
+                const img = data.gambar_buku;
+                $('img.img-fluid.image').attr('src', `<?= base_url() ?>/assets/dashboard/docs/assets/img/upload/` + img);
+            }
+        });
+    });
+</script>
 <script src="<?= base_url('assets/dashboard') ?>/plugins/chart.js/Chart.min.js"></script>
 
 <!-- AdminLTE for demo purposes -->
@@ -43,7 +62,7 @@
 <script src="<?= base_url('assets/dashboard/datatables/js/datatables.js') ?>"></script>
 <script>
     $(document).ready(function() {
-        $('.table.table_datatable').DataTable();
+        $('#datatable').DataTable();
         setTimeout(function() {
             $('.alert.alert-danger.alert-dismissible.mt-3.fade.show.text-light').fadeOut(500);
         }, 3000);

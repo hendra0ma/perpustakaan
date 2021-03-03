@@ -13,6 +13,7 @@
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="<?= base_url('assets/dashboard') ?>/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Theme style -->
+
     <link rel="stylesheet" href="<?= base_url('assets/dashboard') ?>/dist/css/adminlte.min.css">
     <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jq-3.3.1/dt-1.10.23/r-2.2.7/datatables.min.css" />
      -->
@@ -118,10 +119,10 @@
                with font-awesome or any other icon font library -->
                         <li class="nav-header">Menu Utama</li>
                         <li class="nav-item">
-                            <?php if ($this->uri->segment(3) == 'home' && $this->uri->segment(4) == '') : ?>
-                                <a href="<?= base_url() ?>dashboard/admin/home" class="nav-link active">
+                            <?php if ($this->uri->segment(3) == 'admin' && $this->uri->segment(4) == '') : ?>
+                                <a href="<?= base_url() ?>dashboard/admin/admin" class="nav-link active">
                                 <?php else : ?>
-                                    <a href="<?= base_url() ?>dashboard/admin/home" class="nav-link">
+                                    <a href="<?= base_url() ?>dashboard/admin/admin" class="nav-link">
                                     <?php endif; ?>
                                     <i class="nav-icon fas fa-calendar-alt"></i>
                                     <p>
@@ -130,14 +131,14 @@
                                     </a>
                         </li>
                         <li class="nav-item">
-                            <?php if ($this->uri->segment(4) == 'listBarang') : ?>
-                                <a href="<?= base_url() ?>dashboard/admin/home/listBarang" class="nav-link active">
+                            <?php if ($this->uri->segment(4) == 'dataBuku') : ?>
+                                <a href="<?= base_url() ?>dashboard/admin/admin/dataBuku" class="nav-link active">
                                 <?php else : ?>
-                                    <a href="<?= base_url() ?>dashboard/admin/home/listBarang" class="nav-link">
+                                    <a href="<?= base_url() ?>dashboard/admin/admin/dataBuku" class="nav-link">
                                     <?php endif; ?>
                                     <i class="nav-icon far fa-image"></i>
                                     <p>
-                                        Pendataan Barang
+                                        Pendataan Buku
                                     </p>
                                     </a>
                         </li>
