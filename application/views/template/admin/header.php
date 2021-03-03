@@ -90,7 +90,7 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="<?= base_url('dashboard/admin/home') ?>" class="brand-link">
+            <a href="<?= base_url('dashboard/admin/admin') ?>" class="brand-link">
                 <img src="<?= base_url('assets/dashboard') ?>/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light"><b>ADMIN</b></span>
             </a>
@@ -108,7 +108,7 @@
                     </div>
                     <div class="info">
 
-                        <a href="#" class="d-block"><?= $admin->nama_admin ?></a>
+                        <a href="<?= base_url() ?>dashboard/admin/auth/updateProfile" class="d-block"><?= $admin->nama_admin ?></a>
                     </div>
                 </div>
 
@@ -145,16 +145,37 @@
 
                         <li class="nav-header">Menu</li>
                         <li class="nav-item">
-                            <?php if ($this->uri->segment(3) == 'update') : ?>
-                                <a href="<?= base_url() ?>auth/admin/update" class="nav-link active">
-                                <?php else : ?>
-                                    <a href="<?= base_url() ?>auth/admin/update" class="nav-link">
-                                    <?php endif ?>
-                                    <i class="nav-icon fas fa-user-cog"></i>
-                                    <p>
-                                        Edit Profil
-                                    </p>
-                                    </a>
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-user-cog"></i>
+                                <p>
+                                    Profile
+                                    <i class="fas fa-angle-left right"></i>
+
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <?php if ($this->uri->segment(3) == 'auth' && $this->uri->segment(4) == 'updateProfile') : ?>
+                                        <a href="<?= base_url() ?>dashboard/admin/auth/updateProfile" class="nav-link active">
+                                        <?php else : ?>
+                                            <a href="<?= base_url() ?>dashboard/admin/auth/updateProfile" class="nav-link">
+                                            <?php endif ?>
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>edit Profile</p>
+                                            </a>
+                                </li>
+                                <li class="nav-item">
+                                    <?php if ($this->uri->segment(4) == 'updatePass') : ?>
+                                        <a href="<?= base_url() ?>dashboard/admin/auth/updatePass/" class="nav-link active">
+                                        <?php else : ?>
+                                            <a href="<?= base_url() ?>dashboard/admin/auth/updatePass/" class="nav-link">
+                                            <?php endif ?>
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Ganti Password</p>
+                                            </a>
+                                </li>
+
+                            </ul>
                         </li>
 
                         <li class="nav-item">
