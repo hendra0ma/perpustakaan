@@ -1,5 +1,5 @@
 # PERPUSTAKAAN
-## CUKUP TAU 
+## CKP TW 
 - clone 
 - masukan database 
 - jalankan
