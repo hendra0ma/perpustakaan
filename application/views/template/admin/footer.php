@@ -50,6 +50,32 @@
             }
         });
     });
+
+    $(document).on('click', '.badge.badge-primary.edit', function() {
+        const id = $(this).data("id");
+        $('#formJenis').attr("action", "<?= base_url() ?>dashboard/admin/admin/updateJenis");
+        $('.hidden.id').val(id);
+        $('#formModal').html("Edit Data");
+        console.log(id);
+        $.ajax({
+            url: "<?= base_url() ?>/dashboard/admin/admin/getJenisPerIdAjax",
+            data: {
+                ids: id,
+            },
+            type: "post",
+            dataType: "json",
+            success: function(data) {
+                $('#nama_jenis').val(data[0].nama_jenis);
+            }
+        })
+    });
+    $(document).on('click', '#tombol_tambah_jenis', function() {
+        $('#formJenis').attr("action", "<?= base_url() ?>dashboard/admin/admin/tambahJenis");
+        $('.hidden.id').val("");
+        $('#formModal').val("");
+        $('#nama_jenis').val("");
+        $('#formModal').html("tambah Data");
+    })
 </script>
 <script src="<?= base_url('assets/dashboard') ?>/plugins/chart.js/Chart.min.js"></script>
 

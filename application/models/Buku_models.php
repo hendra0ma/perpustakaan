@@ -28,9 +28,23 @@ class Buku_models extends CI_Model
         $this->db->where('id_buku', $id);
         return $this->db->get('tb_buku')->row();
     }
+    public function getByIdJoin($id)
+    {
+        $this->db->select('*');
+        $this->db->from('tb_buku');
+        $this->db->join('tb_jenis', 'tb_jenis.id_jenis = tb_buku.id_jenis');
+        $this->db->where('tb_buku.id_buku', $id);
+        $query = $this->db->get();
+        return $query->row();
+    }
     public function deleteBuku($id)
     {
         $this->db->where('id_buku', $id);
         $this->db->delete('tb_buku');
+    }
+    public function updateBuku($id, $data)
+    {
+        $this->db->where("id_buku", $id);
+        $this->db->update("tb_buku", $data);
     }
 }

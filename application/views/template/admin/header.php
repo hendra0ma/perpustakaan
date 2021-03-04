@@ -130,18 +130,46 @@
                                     </p>
                                     </a>
                         </li>
+
                         <li class="nav-item">
-                            <?php if ($this->uri->segment(4) == 'dataBuku') : ?>
-                                <a href="<?= base_url() ?>dashboard/admin/admin/dataBuku" class="nav-link active">
-                                <?php else : ?>
-                                    <a href="<?= base_url() ?>dashboard/admin/admin/dataBuku" class="nav-link">
-                                    <?php endif; ?>
-                                    <i class="nav-icon far fa-image"></i>
-                                    <p>
-                                        Pendataan Buku
-                                    </p>
-                                    </a>
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-book"></i>
+                                <p>
+                                    Pendataan Buku
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <?php if ($this->uri->segment(4) == 'dataBuku') : ?>
+                                        <a href="<?= base_url() ?>dashboard/admin/admin/dataBuku" class="nav-link active">
+                                        <?php else : ?>
+                                            <a href="<?= base_url() ?>dashboard/admin/admin/dataBuku" class="nav-link">
+                                            <?php endif; ?>
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>
+                                                Buku
+                                            </p>
+                                            </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <?php if ($this->uri->segment(4) == 'jenisBuku') : ?>
+                                        <a href="<?= base_url() ?>dashboard/admin/admin/jenisBuku/" class="nav-link active">
+                                        <?php else : ?>
+                                            <a href="<?= base_url() ?>dashboard/admin/admin/jenisBuku/" class="nav-link">
+                                            <?php endif ?>
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Jenis Buku</p>
+                                            </a>
+                                </li>
+
+                            </ul>
                         </li>
+
+
+
+
 
                         <li class="nav-header">Menu</li>
                         <li class="nav-item">

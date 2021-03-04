@@ -33,7 +33,8 @@
                                 <td><?= $data->stock_buku ?></td>
                                 <td style="width: 10em;overflow: hidden;text-overflow: ellipsis;"><?= $data->deskripsi_buku ?></td>
                                 <td>
-                                    <a href="<?= base_url() ?>/dashboard/admin/admin/deleteBuku/<?= $data->id_buku ?>" class="badge badge-danger" onclick="return window.confirm('yakin?')">hapus</a>
+                                    <a href="<?= base_url() ?>dashboard/admin/admin/deleteBuku/<?= $data->id_buku ?>" class="badge badge-danger mr-1" onclick="return window.confirm('yakin?')">hapus</a>
+                                    <a href="<?= base_url() ?>dashboard/admin/admin/editBuku/<?= $data->id_buku ?>" class="badge badge-primary">edit</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -45,7 +46,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="showModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class=" modal fade" id="showModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
