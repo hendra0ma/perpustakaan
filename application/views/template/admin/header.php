@@ -107,7 +107,6 @@
                         <?php endif; ?>
                     </div>
                     <div class="info">
-
                         <a href="<?= base_url() ?>dashboard/admin/auth/updateProfile" class="d-block"><?= $admin->nama_admin ?></a>
                     </div>
                 </div>

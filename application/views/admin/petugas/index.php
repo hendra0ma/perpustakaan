@@ -40,6 +40,12 @@
                                             <td><?= $data->username ?></td>
                                             <td>
                                                 <a href="<?= base_url() ?>dashboard/admin/petugas/delete/<?= $data->id_petugas ?>" class="badge badge-danger" onclick="return window.confirm('yakin?')">Delete</a>
+                                                <?php if ($data->status != 2) : ?>
+
+                                                    <a href="<?= base_url() ?>dashboard/admin/petugas/status/aktifkan/<?= $data->id_petugas ?>" class="badge badge-warning">Aktifkan</a>
+                                                <?php else : ?>
+                                                    <a href="<?= base_url() ?>dashboard/admin/petugas/status/nonaktifkan/<?= $data->id_petugas ?>" class="badge badge-success">Non Aktifkan</a>
+                                                <?php endif ?>
                                             </td>
                                         </tr>
 

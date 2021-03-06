@@ -52,7 +52,7 @@
                                 <td> <?php
                                         $buku = $this->Buku_models->getBukuByidJenis($data->id_jenis);
                                         if (empty($buku)) : ?>
-                                        <a href="<?= base_url() ?>dashboard/admin/admin/deleteJenis/<?= $data->id_jenis ?>" class="badge badge-danger mr-1" onclick="return window.confirm('yakin?')">hapus</a>
+                                        <a href="<?= base_url() ?>dashboard/petugas/petugas/deleteJenis/<?= $data->id_jenis ?>" class="badge badge-danger mr-1" onclick="return window.confirm('yakin?')">hapus</a>
                                     <?php endif; ?>
                                     <a href="#showModal" data-toggle="modal" data-id="<?= $data->id_jenis ?>" class="badge badge-primary edit">edit</a>
                                 </td>
@@ -76,7 +76,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?= base_url() ?>/dashboard/admin/admin/tambahJenis" method="post" id="formJenis">
+            <form action="<?= base_url() ?>dashboard/petugas/petugas/tambahJenis" method="post" id="formJenis">
                 <div class="modal-body">
                     <div class="col-md-12">
 

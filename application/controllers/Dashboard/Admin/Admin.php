@@ -210,6 +210,7 @@ class Admin extends CI_Controller
             $this->load->view("template/admin/footer");
         }
     }
+    //jenis buku
     public function jenisBuku()
     {
         $this->data['title'] = "Pendataan Buku";
@@ -315,6 +316,14 @@ class Admin extends CI_Controller
             $this->load->view("template/admin/footer");
         }
     }
+    // public function bukuTerpinjam()
+    // {
+
+    //     $this->load->view("template/admin/header", $this->data);
+    //     $this->load->view("admin/data_buku/jenisBuku", $this->data);
+    //     $this->load->view("template/admin/footer");
+    // }
+
     // akhir pengelolaan buku
 
 

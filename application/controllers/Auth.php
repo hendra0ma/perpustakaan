@@ -89,32 +89,38 @@ class Auth extends CI_Controller
                 } else if ($this->input->post('sebagai') == 'petugas') {
 
                     $user = $this->Petugas_model->getUserByUsername($username);
-                    if (!empty($user)) {
-                        if ($user->id_level == 3) {
-                            if (password_verify($password, $user->password)) {
-                                $session = array(
+                    if ($user->status == 2) {
+                        if (!empty($user)) {
+                            if ($user->id_level == 3) {
 
-                                    'id_user' => $user->id_admin,
-                                    'username' => $user->username,
-                                    'nama' => $user->nama_admin,
-                                    'autentikasi' => true,
-                                    'email' => $user->email,
-                                    'email' => $user->email,
-                                    'alamat' => $user->alamat,
-                                    'id_level' => $user->id_level
-                                );
-                                $this->session->set_userdata($session);
-                                redirect('dashboard/petugas/petugas');
+                                if (password_verify($password, $user->password)) {
+                                    $session = array(
+
+                                        'id_user' => $user->id_admin,
+                                        'username' => $user->username,
+                                        'nama' => $user->nama_admin,
+                                        'autentikasi' => true,
+                                        'email' => $user->email,
+                                        'email' => $user->email,
+                                        'alamat' => $user->alamat,
+                                        'id_level' => $user->id_level
+                                    );
+                                    $this->session->set_userdata($session);
+                                    redirect('dashboard/petugas/petugas');
+                                } else {
+                                    $this->session->set_flashdata('message', 'Password yang anda masukan salah');
+                                    redirect('auth/');
+                                }
                             } else {
                                 $this->session->set_flashdata('message', 'Password yang anda masukan salah');
                                 redirect('auth/');
                             }
                         } else {
-                            $this->session->set_flashdata('message', 'Password yang anda masukan salah');
+                            $this->session->set_flashdata('message', 'Anda tidak bisa login dengan level ini');
                             redirect('auth/');
                         }
                     } else {
-                        $this->session->set_flashdata('message', 'Anda tidak bisa login dengan level ini');
+                        $this->session->set_flashdata('message', 'Akun anda sedang tidak aktif');
                         redirect('auth/');
                     }
                 } else {

@@ -10,6 +10,14 @@ class Buku_models extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
+    public function getBukuByidJenis($id_jenis)
+    {
+        $this->db->select('*');
+        $this->db->from('tb_buku');
+        $this->db->where('id_jenis', $id_jenis);
+        $query = $this->db->get();
+        return $query->result();
+    }
     public function getBukuLimit($data)
     {
         $this->db->select('*');
@@ -37,6 +45,7 @@ class Buku_models extends CI_Model
         $query = $this->db->get();
         return $query->row();
     }
+
     public function deleteBuku($id)
     {
         $this->db->where('id_buku', $id);

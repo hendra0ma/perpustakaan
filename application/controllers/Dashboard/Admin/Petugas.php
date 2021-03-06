@@ -18,6 +18,7 @@ class Petugas extends CI_Controller
     public function index()
     {
         $this->data['title'] = "Atur Petugas";
+
         $this->data['petugas'] = $this->Petugas_model->get();
         $this->load->view('template/admin/header', $this->data);
         $this->load->view('admin/petugas/index', $this->data);
@@ -103,5 +104,14 @@ class Petugas extends CI_Controller
         $this->Petugas_model->delete($id);
         $this->session->set_flashdata('message', 'Data berhasil di hapus');
         redirect('dashboard/admin/petugas/');
+    }
+    public function status($status, $id)
+    {
+        if ($status == "aktifkan") {
+            $this->Petugas_model->update($id, ['status' => 2]);
+        } else {
+            $this->Petugas_model->update($id, ['status' => 1]);
+        }
+        redirect('dashboard/admin/petugas');
     }
 }

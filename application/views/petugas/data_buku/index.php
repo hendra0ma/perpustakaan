@@ -1,53 +1,9 @@
 <div class="container">
-    <div class="row">
-        <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-                <div class="inner">
-                    <h3><?= $jumlah_jenis_buku ?></h3>
-
-                    <p>Jenis Buku</p>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-bag"></i>
-                </div>
-                <a href="<?= base_url() ?>/dashboard/petugas/petugas/jenisBuku" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-        </div>
-        <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-                <div class="inner">
-                    <h3><?= count($buku) ?></h3>
-
-                    <p>Buku</p>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-bag"></i>
-                </div>
-                <a href="<?= base_url() ?>/dashboard/petugas/petugas/dataBuku" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-dark">
-                <div class="inner">
-                    <h3><?= $jumlah_user ?></h3>
-                    <p>Member</p>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-bag"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-        </div>
-        <!-- ./col -->
-
-        <!-- ./col -->
-    </div>
     <div class="card">
         <div class="card-body">
+            <a href="<?= base_url() ?>dashboard/petugas/petugas/tambahBuku" class="btn btn-primary mb-2 mt-2 float-right">
+                tambah buku
+            </a>
             <div class="table-responsive">
                 <table class="table table-borderede" id="datatable">
                     <thead>
@@ -56,7 +12,9 @@
                             <th scope="col">nama buku</th>
                             <th scope="col">jenis</th>
                             <th scope="col">gambar buku</th>
+                            <th scope="col">stock</th>
                             <th scope="col">deskripsi</th>
+                            <th>action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -67,10 +25,17 @@
                                 <th scope="row"><?= $i++ ?></th>
                                 <td><?= $data->nama_buku ?></td>
                                 <td><?= $data->nama_jenis ?></td>
-                                <td><a href="#showModal" data-toggle="modal" class="btn btn-success lihat-gambar" data-id="<?= $data->id_buku ?>">
+                                <td>
+                                    <a href="#showModal" data-toggle="modal" class="btn btn-success lihat-gambar" data-id="<?= $data->id_buku ?>">
                                         lihat Gambar
-                                    </a></td>
-                                <td><?= $data->deskripsi_buku ?></td>
+                                    </a>
+                                </td>
+                                <td><?= $data->stock_buku ?></td>
+                                <td style="width: 10em;overflow: hidden;text-overflow: ellipsis;"><?= $data->deskripsi_buku ?></td>
+                                <td>
+                                    <a href="<?= base_url() ?>dashboard/petugas/petugas/deleteBuku/<?= $data->id_buku ?>" class="badge badge-danger mr-1" onclick="return window.confirm('yakin?')">hapus</a>
+                                    <a href="<?= base_url() ?>dashboard/petugas/petugas/editBuku/<?= $data->id_buku ?>" class="badge badge-primary">edit</a>
+                                </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
@@ -78,10 +43,10 @@
             </div>
         </div>
     </div>
-
 </div>
+
 <!-- Modal -->
-<div class="modal fade" id="showModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class=" modal fade" id="showModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
