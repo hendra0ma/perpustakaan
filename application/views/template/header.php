@@ -51,6 +51,10 @@
                     <a href="#">Member</a>
                     <ul class="submenu">
                         <?php if ($this->session->userdata("autentikasi")) : ?>
+                            <li class="menu-item"> <a href="<?= base_url('auth/logout') ?>">logout</a> </li>
+                            <?php if ($this->session->userdata("id_level") == 1) : ?>
+                                <li class="menu-item"> <a href="<?= base_url() ?>dashboard/user/auth/updateProfile">Profile</a> </li>
+                            <?php endif ?>
                         <?php else : ?>
                             <li class="menu-item"> <a href="<?= base_url('auth') ?>">Login</a> </li>
                             <li class="menu-item"> <a href="<?= base_url('auth/register') ?>">Register</a> </li>
@@ -86,7 +90,9 @@
                         <ul class="submenu">
                             <?php if ($this->session->userdata("autentikasi")) : ?>
                                 <li class="menu-item"> <a href="<?= base_url('auth/logout') ?>">logout</a> </li>
-                                <li class="menu-item"> <a href="<?= base_url('auth') ?>">Profile</a> </li>
+                                <?php if ($this->session->userdata("id_level") == 1) : ?>
+                                    <li class="menu-item"> <a href="<?= base_url() ?>dashboard/user/auth/updateProfile">Profile</a> </li>
+                                <?php endif ?>
                             <?php else : ?>
                                 <li class="menu-item"> <a href="<?= base_url('auth') ?>">Login</a> </li>
                                 <li class="menu-item"> <a href="<?= base_url('auth/register') ?>">Register</a> </li>

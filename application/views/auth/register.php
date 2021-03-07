@@ -48,12 +48,7 @@
                 <label>Password Konfirmasi</label>
                 <input type="password" class="form-control" placeholder="Password konfirmasi" name="passconf" value="">
             </div>
-            <div class="auth-controls form-group">
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="rememberMe">
-                    <label class="custom-control-label fw-400" for="rememberMe">Agree to our <a href="#" class="btn-link">terms &amp; conditions</a> </label>
-                </div>
-            </div>
+
             <div class="form-group">
                 <button type="submit" class="btn-custom primary btn-block">Sign Up</button>
             </div>
