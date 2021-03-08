@@ -9,8 +9,10 @@
                     <thead>
                         <tr>
                             <th scope="col">no</th>
+                            <th scope="col">kode buku</th>
                             <th scope="col">nama buku</th>
                             <th scope="col">jenis</th>
+                            <th scope="col">kondisi</th>
                             <th scope="col">gambar buku</th>
                             <th scope="col">stock</th>
                             <th scope="col">deskripsi</th>
@@ -23,8 +25,10 @@
                         foreach ($buku as $data) : ?>
                             <tr>
                                 <th scope="row"><?= $i++ ?></th>
+                                <td><?= $data->kode_buku ?></td>
                                 <td><?= $data->nama_buku ?></td>
                                 <td><?= $data->nama_jenis ?></td>
+                                <td><?= $data->kondisi ?></td>
                                 <td>
                                     <a href="#showModal" data-toggle="modal" class="btn btn-success lihat-gambar" data-id="<?= $data->id_buku ?>">
                                         lihat Gambar

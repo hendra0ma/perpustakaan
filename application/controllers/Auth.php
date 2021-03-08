@@ -189,6 +189,7 @@ class Auth extends CI_Controller
                     'email' => $this->input->post('email', true),
                     'telp' => $this->input->post('telp', true),
                     'username' => $this->input->post('username', true),
+                    'alamat' => $this->input->post('alamat', true),
                     'password' => password_hash($this->input->post('password', true), PASSWORD_DEFAULT),
                     'id_level' => 1
                 ];

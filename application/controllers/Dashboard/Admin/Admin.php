@@ -58,6 +58,23 @@ class Admin extends CI_Controller
                     'is_unique' => "nama buku sudah pernah di masukan"
                 ]
             );
+            $this->form_validation->set_rules(
+                'kode_buku',
+                'kode buku',
+                'required|is_unique[tb_buku.kode_buku]',
+                [
+                    'required' => 'kode buku wajib di isi',
+                    'is_unique' => "kode buku sudah pernah di masukan"
+                ]
+            );
+            $this->form_validation->set_rules(
+                'kondisi',
+                'kondisi buku',
+                'required',
+                [
+                    'required' => 'kondisi buku wajib di isi',
+                ]
+            );
 
             $this->form_validation->set_rules(
                 'stock_buku',
@@ -96,6 +113,8 @@ class Admin extends CI_Controller
                     'id_jenis' => $this->input->post('id_jenis'),
                     'stock_buku' => $this->input->post('stock_buku'),
                     'deskripsi_buku' => $this->input->post('deskripsi_buku'),
+                    'kode_buku' => $this->input->post('kode_buku'),
+                    'kondisi' => $this->input->post('kondisi'),
                     'gambar_buku' => $gambar
                 ];
                 $this->Buku_models->insertBuku($datas);
@@ -134,9 +153,10 @@ class Admin extends CI_Controller
     {
         $this->data['title'] = "Edit Buku";
         $this->data['buku'] = $this->Buku_models->getByIdJoin($id);
+        
         $this->data['jenis_buku'] = $this->getJenisNotIn([$this->data['buku']->id_jenis]);
         if ($this->input->post()) {
-            if ($this->input->post('nama_buku') ==  $this->data['buku']->nama_buku || $this->input->post('nama_buku') != "") {
+            if ($this->input->post('nama_buku') ==  $this->data['buku']->nama_buku && $this->input->post('nama_buku') != "") {
             } else {
                 $this->form_validation->set_rules(
                     'nama_buku',
@@ -148,7 +168,27 @@ class Admin extends CI_Controller
                     ]
                 );
             }
-
+            // var_dump($this->input->post('kode_buku') ==  $this->data['buku']->kode_buku);die;
+            if ($this->input->post('kode_buku') ==  $this->data['buku']->kode_buku && $this->input->post('kode_buku') != "") {
+            } else {
+            $this->form_validation->set_rules(
+                'kode_buku',
+                'kode buku',
+                'required|is_unique[tb_buku.kode_buku]',
+                [
+                    'required' => 'kode buku wajib di isi',
+                    'is_unique' => "kode buku sudah pernah di masukan"
+                ]
+            );
+        }
+            $this->form_validation->set_rules(
+                'kondisi',
+                'kondisi buku',
+                'required',
+                [
+                    'required' => 'kondisi buku wajib di isi',
+                ]
+            );
 
             $this->form_validation->set_rules(
                 'stock_buku',
@@ -178,6 +218,8 @@ class Admin extends CI_Controller
                         'id_jenis' => $this->input->post('id_jenis'),
                         'stock_buku' => $this->input->post('stock_buku'),
                         'deskripsi_buku' => $this->input->post('deskripsi_buku'),
+                        'kode_buku' => $this->input->post('kode_buku'),
+                        'kondisi' => $this->input->post('kondisi'),
                     ];
                 } else {
                     unlink('./assets/dashboard/docs/assets/img/upload/' . $this->data['buku']->gambar_buku);
@@ -197,6 +239,8 @@ class Admin extends CI_Controller
                         'id_jenis' => $this->input->post('id_jenis'),
                         'stock_buku' => $this->input->post('stock_buku'),
                         'deskripsi_buku' => $this->input->post('deskripsi_buku'),
+                        'kode_buku' => $this->input->post('kode_buku'),
+                        'kondisi' => $this->input->post('kondisi'),
                         'gambar_buku' => $gambar
                     ];
                 }
