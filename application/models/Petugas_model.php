@@ -10,6 +10,7 @@ class Petugas_model extends CI_Model
         $query = $this->db->get();
         return $query->row();
     }
+
     public function register($data)
     {
         $this->db->insert('tb_petugas', $data);

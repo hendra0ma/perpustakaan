@@ -136,6 +136,18 @@
                                     </a>
                         </li>
                         <li class="nav-item">
+                            <?php if ($this->uri->segment(3) == 'user' && $this->uri->segment(4) == 'bukuDipinjam') : ?>
+                                <a href="<?= base_url() ?>dashboard/user/user/bukuDipinjam" class="nav-link active">
+                                <?php else : ?>
+                                    <a href="<?= base_url() ?>dashboard/user/user/bukuDipinjam" class="nav-link">
+                                    <?php endif; ?>
+                                    <i class="nav-icon fas fa-book"></i>
+                                    <p>
+                                        Buku Dipinjam
+                                    </p>
+                                    </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-user-cog"></i>
                                 <p>

@@ -1,18 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-                <div class="inner">
-                    <h3><?= $jumlah_dipinjam ?></h3>
 
-                    <p>Jumlah Buku Dipinjam</p>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-bag"></i>
-                </div>
-                <a href="<?= base_url() ?>/dashboard/admin/admin/jenisBuku" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
         </div>
 
 
@@ -40,7 +29,6 @@
                                 <th scope="col">Tanggal Kembali</th>
                                 <th scope="col">Jumlah Pinjam</th>
                                 <th scope="col">status</th>
-
 
                             </tr>
                         </thead>
@@ -73,7 +61,6 @@
                                             <div class="badge badge-success">buku telah lewat tenggang waktu</div>
                                         <?php } else echo "error"; ?>
                                     </td>
-
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>

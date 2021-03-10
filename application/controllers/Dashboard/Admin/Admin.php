@@ -32,7 +32,7 @@ class Admin extends CI_Controller
 
 
 
-    // PENGELOLAAN BUKU
+    // PENGELOLAAN BUKUs
 
 
     public function dataBuku()
@@ -153,7 +153,7 @@ class Admin extends CI_Controller
     {
         $this->data['title'] = "Edit Buku";
         $this->data['buku'] = $this->Buku_models->getByIdJoin($id);
-        
+
         $this->data['jenis_buku'] = $this->getJenisNotIn([$this->data['buku']->id_jenis]);
         if ($this->input->post()) {
             if ($this->input->post('nama_buku') ==  $this->data['buku']->nama_buku && $this->input->post('nama_buku') != "") {
@@ -171,16 +171,16 @@ class Admin extends CI_Controller
             // var_dump($this->input->post('kode_buku') ==  $this->data['buku']->kode_buku);die;
             if ($this->input->post('kode_buku') ==  $this->data['buku']->kode_buku && $this->input->post('kode_buku') != "") {
             } else {
-            $this->form_validation->set_rules(
-                'kode_buku',
-                'kode buku',
-                'required|is_unique[tb_buku.kode_buku]',
-                [
-                    'required' => 'kode buku wajib di isi',
-                    'is_unique' => "kode buku sudah pernah di masukan"
-                ]
-            );
-        }
+                $this->form_validation->set_rules(
+                    'kode_buku',
+                    'kode buku',
+                    'required|is_unique[tb_buku.kode_buku]',
+                    [
+                        'required' => 'kode buku wajib di isi',
+                        'is_unique' => "kode buku sudah pernah di masukan"
+                    ]
+                );
+            }
             $this->form_validation->set_rules(
                 'kondisi',
                 'kondisi buku',

@@ -165,6 +165,65 @@
 
                             </ul>
                         </li>
+
+
+                        <li class="nav-item ">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-book-reader"></i>
+                                <p>
+                                    Peminjaman
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <?php if ($this->uri->segment(3) == 'peminjaman'  && $this->uri->segment(4) == '') : ?>
+                                        <a href="<?= base_url() ?>dashboard/petugas/peminjaman/" class="nav-link active">
+                                        <?php else : ?>
+                                            <a href="<?= base_url() ?>dashboard/petugas/peminjaman/" class="nav-link">
+                                            <?php endif; ?>
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>
+                                                Request
+                                            </p>
+                                            </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <?php if ($this->uri->segment(4) == 'diPinjam') : ?>
+                                        <a href="<?= base_url() ?>dashboard/petugas/peminjaman/diPinjam/" class="nav-link active">
+                                        <?php else : ?>
+                                            <a href="<?= base_url() ?>dashboard/petugas/peminjaman/diPinjam/" class="nav-link">
+                                            <?php endif ?>
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Di Pinjam</p>
+                                            </a>
+                                </li>
+                                <li class="nav-item">
+                                    <?php if ($this->uri->segment(4) == 'diKembalikan') : ?>
+                                        <a href="<?= base_url() ?>dashboard/petugas/peminjaman/diKembalikan/" class="nav-link active">
+                                        <?php else : ?>
+                                            <a href="<?= base_url() ?>dashboard/petugas/peminjaman/diKembalikan/" class="nav-link">
+                                            <?php endif ?>
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Di Kembalikan</p>
+                                            </a>
+                                </li>
+                                <li class="nav-item">
+                                    <?php if ($this->uri->segment(4) == 'waktuTenggang') : ?>
+                                        <a href="<?= base_url() ?>dashboard/petugas/peminjaman/waktuTenggang/" class="nav-link active">
+                                        <?php else : ?>
+                                            <a href="<?= base_url() ?>dashboard/petugas/peminjaman/waktuTenggang/" class="nav-link">
+                                            <?php endif ?>
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Lewat Waktu Tenggang</p>
+                                            </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+
                         <li class="nav-header">Menu</li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">

@@ -28,16 +28,16 @@
                                 <td><?= $data->kode_buku ?></td>
                                 <td><?= $data->nama_buku ?></td>
                                 <td><?= $data->nama_jenis ?></td>
-                                <?php if($data->kondisi == "baik"){ ?>
+                                <?php if ($data->kondisi == "baik") { ?>
                                     <td>baik</td>
-                                <?php } else if($data->kondisi == "kurang_baik"){ ?>
+                                <?php } else if ($data->kondisi == "kurang_baik") { ?>
                                     <td>kurang baik</td>
-                                <?php } else if($data->kondisi == "buruk"){ ?>
+                                <?php } else if ($data->kondisi == "buruk") { ?>
                                     <td>buruk</td>
-                                <?php } else{ ?>
+                                <?php } else { ?>
                                     <td>baik</td>
                                 <?php } ?>
-                                
+
                                 <td>
                                     <a href="#showModal" data-toggle="modal" class="btn btn-success lihat-gambar" data-id="<?= $data->id_buku ?>">
                                         lihat Gambar

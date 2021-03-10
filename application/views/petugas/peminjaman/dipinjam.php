@@ -27,9 +27,9 @@
                             <th scope="col">Kode Buku</th>
                             <th scope="col">Nama Buku</th>
                             <th scope="col">Peminjam</th>
-
-
-
+                            <th scope="col">Petugas</th>
+                            <th scope="col">Tanggal Pinjam</th>
+                            <th scope="col">Tanggal harus Kembali</th>
                             <th scope="col">Jumlah Pinjam</th>
 
                             <th>action</th>
@@ -38,18 +38,18 @@
                     <tbody>
                         <?php
                         $i = 1;
-                        foreach ($acc as $data) : ?>
+                        foreach ($dipinjam as $data) : ?>
                             <tr>
                                 <th scope="row"><?= $i++ ?></th>
                                 <td><?= $data->kode_buku ?></td>
                                 <td><?= $data->nama_buku ?></td>
                                 <td><?= $data->nama_lengkap ?></td>
-
-
-
+                                <td><?= $data->nama_petugas ?></td>
+                                <td><?= $data->tanggal_pinjam ?></td>
+                                <td><?= $data->tanggal_harus_kembali ?></td>
                                 <td><?= $data->jumlah_pinjam ?></td>
                                 <td>
-                                    <a href="<?= base_url() ?>dashboard/admin/peminjaman/acc/<?= $data->id_peminjaman ?>/dipinjam" class="badge badge-primary">Accept</a>
+                                    <a href="<?= base_url() ?>dashboard/petugas/peminjaman/actKembalikan/<?= $data->id_peminjaman ?>/dikembalikan" class="badge badge-success">Di Kembalikan</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

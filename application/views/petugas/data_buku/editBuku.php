@@ -37,6 +37,34 @@
                             <div class="badge text-danger"><?= form_error('nama_buku') ?></div>
                         </div>
                         <div class="form-group">
+                            <label for="kode_buku">Kode Buku</label>
+                            <input type="text" class="form-control" id="kode_buku" name="kode_buku" placeholder="kode buku" value="<?= $buku->kode_buku ?>">
+                            <div class="badge text-danger"><?= form_error('kode_buku') ?></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="kondisi">kondisi buku</label>
+                            <select class="form-control" id="kondisi" name="kondisi">
+                                <?php if ($buku->kondisi == "baik") { ?>
+                                    <option value="baik">baik</option>
+                                    <option value="kurang_baik">kurang baik</option>
+                                    <option value="buruk">buruk</option>
+                                <?php } else if ($buku->kondisi == "kurang_baik") { ?>
+                                    <option value="kurang_baik">kurang baik</option>
+                                    <option value="baik">baik</option>
+                                    <option value="buruk">buruk</option>
+                                <?php } else if ($buku->kondisi == "buruk") { ?>
+                                    <option value="buruk">buruk</option>
+                                    <option value="baik">baik</option>
+                                    <option value="kurang_baik">kurang baik</option>
+                                <?php } else { ?>
+                                    <option value="baik">baik</option>
+                                    <option value="buruk">buruk</option>
+                                    <option value="kurang_baik">kurang baik</option>
+                                <?php } ?>
+                            </select>
+                            <div class="badge text-danger"><?= form_error('kondisi') ?></div>
+                        </div>
+                        <div class="form-group">
                             <label for="jenis">jenis</label>
                             <select class="form-control" id="jenis" name="id_jenis">
                                 <option value="<?= $buku->id_jenis ?>"><?= $buku->nama_jenis ?></option>

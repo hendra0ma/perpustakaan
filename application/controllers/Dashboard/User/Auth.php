@@ -6,7 +6,7 @@ class Auth extends CI_Controller
     {
         parent::__construct();
         $this->autenticated();
-        $this->data['user'] = $this->User_model->getUserByUsername($this->session->userdata('username'));
+        $this->data['user'] = $this->User_model->getUserById($this->session->userdata('id_user'));
     }
     private function autenticated()
     {

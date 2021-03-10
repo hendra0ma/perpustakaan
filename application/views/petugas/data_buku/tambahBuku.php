@@ -37,6 +37,20 @@
                             <div class="badge text-danger"><?= form_error('nama_buku') ?></div>
                         </div>
                         <div class="form-group">
+                            <label for="kode_buku">Kode Buku</label>
+                            <input type="text" class="form-control" id="kode_buku" name="kode_buku" placeholder="kode buku">
+                            <div class="badge text-danger"><?= form_error('kode_buku') ?></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="kondisi">kondisi buku</label>
+                            <select class="form-control" id="kondisi" name="kondisi">
+                                <option value="baik">baik</option>
+                                <option value="kurang_baik">kurang baik</option>
+                                <option value="buruk">buruk</option>
+                            </select>
+                            <div class="badge text-danger"><?= form_error('kondisi') ?></div>
+                        </div>
+                        <div class="form-group">
                             <label for="jenis">jenis</label>
                             <select class="form-control" id="jenis" name="id_jenis">
                                 <?php foreach ($jenis_buku as $data) { ?>

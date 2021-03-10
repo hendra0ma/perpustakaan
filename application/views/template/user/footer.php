@@ -44,12 +44,37 @@
  -->
 <script src="<?= base_url('assets/dashboard/datatables/js/datatables.js') ?>"></script>
 <script>
+    $('.lihat-gambar').click(function() {
+        const id = $(this).data("id");
+
+        $.ajax({
+            url: "<?= base_url() ?>dashboard/user/user/getBukuById",
+            data: {
+                "id": id,
+            },
+            dataType: "json",
+            type: "get",
+            success: function(data) {
+                const img = data.gambar_buku;
+                $('img.img-fluid.image').attr('src', `<?= base_url() ?>/assets/dashboard/docs/assets/img/upload/` + img);
+            }
+        });
+    });
+
+
+
     // $(document).ready(function() {
     //     $('#datatable').DataTable();
     //     setTimeout(function() {
     //         $('.alert.alert-danger.alert-dismissible.mt-3.fade.show.text-light').fadeOut(500);
     //     }, 3000);
     // });
+    $(document).ready(function() {
+        $('#datatable').DataTable();
+        setTimeout(function() {
+            $('.alert.alert-danger.alert-dismissible.mt-3.fade.show.text-light').fadeOut(500);
+        }, 3000);
+    });
 
 
     function readURL(input) {

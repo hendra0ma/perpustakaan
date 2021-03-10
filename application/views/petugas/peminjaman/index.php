@@ -49,7 +49,7 @@
 
                                 <td><?= $data->jumlah_pinjam ?></td>
                                 <td>
-                                    <a href="<?= base_url() ?>dashboard/admin/peminjaman/acc/<?= $data->id_peminjaman ?>/dipinjam" class="badge badge-primary">Accept</a>
+                                    <a href="<?= base_url() ?>dashboard/petugas/peminjaman/acc/<?= $data->id_peminjaman ?>/dipinjam" class="badge badge-primary">Accept</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
