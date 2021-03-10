@@ -129,8 +129,12 @@
                                     </p>
                                     </a>
                         </li>
-
-                        <li class="nav-item">
+                     
+                        <?php if ($this->uri->segment(3) == 'admin' && $this->uri->segment(4) != '') : ?>
+                        <li class="nav-item "style="background-color : rgba(255,255,255,.1);border-radius:5px;">
+                        <?php else : ?>
+                            <li class="nav-item ">
+                            <?php endif ?>
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-book"></i>
                                 <p>
@@ -165,13 +169,76 @@
 
                             </ul>
                         </li>
+                        <?php if ($this->uri->segment(3) == 'peminjaman') : ?>
+                        <li class="nav-item "style="background-color : rgba(255,255,255,.1);border-radius:5px;">
+                        <?php else : ?>
+                            <li class="nav-item ">
+                            <?php endif ?>
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-book-reader"></i>
+                                <p>
+                                    Peminjaman
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <?php if ($this->uri->segment(3) == 'peminjaman'  && $this->uri->segment(4) == '') : ?>
+                                        <a href="<?= base_url() ?>dashboard/admin/peminjaman/" class="nav-link active">
+                                        <?php else : ?>
+                                            <a href="<?= base_url() ?>dashboard/admin/peminjaman/" class="nav-link">
+                                            <?php endif; ?>
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>
+                                                Request
+                                            </p>
+                                            </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <?php if ($this->uri->segment(4) == 'diPinjam') : ?>
+                                        <a href="<?= base_url() ?>dashboard/admin/peminjaman/diPinjam/" class="nav-link active">
+                                        <?php else : ?>
+                                            <a href="<?= base_url() ?>dashboard/admin/peminjaman/diPinjam/" class="nav-link">
+                                            <?php endif ?>
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Di Pinjam</p>
+                                            </a>
+                                </li>
+                                <li class="nav-item">
+                                    <?php if ($this->uri->segment(4) == 'diKembalikan') : ?>
+                                        <a href="<?= base_url() ?>dashboard/admin/peminjaman/diKembalikan/" class="nav-link active">
+                                        <?php else : ?>
+                                            <a href="<?= base_url() ?>dashboard/admin/peminjaman/diKembalikan/" class="nav-link">
+                                            <?php endif ?>
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Di Kembalikan</p>
+                                            </a>
+                                </li>
+                                <li class="nav-item">
+                                    <?php if ($this->uri->segment(4) == 'waktuTenggang') : ?>
+                                        <a href="<?= base_url() ?>dashboard/admin/peminjaman/waktuTenggang/" class="nav-link active">
+                                        <?php else : ?>
+                                            <a href="<?= base_url() ?>dashboard/admin/peminjaman/waktuTenggang/" class="nav-link">
+                                            <?php endif ?>
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Lewat Waktu Tenggang</p>
+                                            </a>
+                                </li>
+
+                            </ul>
+                        </li>
 
 
 
 
 
                         <li class="nav-header">Menu</li>
-                        <li class="nav-item">
+                        <?php if ($this->uri->segment(3) == 'auth') : ?>
+                        <li class="nav-item "style="background-color : rgba(255,255,255,.1);border-radius:5px;">
+                        <?php else : ?>
+                            <li class="nav-item ">
+                            <?php endif ?>
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-user-cog"></i>
                                 <p>
@@ -205,7 +272,11 @@
                             </ul>
                         </li>
 
-                        <li class="nav-item">
+                        <?php if ($this->uri->segment(3) == 'petugas') : ?>
+                        <li class="nav-item "style="background-color : rgba(255,255,255,.1);border-radius:5px;">
+                        <?php else : ?>
+                            <li class="nav-item ">
+                            <?php endif ?>
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-users-cog"></i>
                                 <p>
