@@ -43,6 +43,23 @@
 <!-- Tutorz Scripts -->
 <script src="<?= base_url('assets/template') ?>/assets/js/main.js"></script>
 
+<script>
+    $(document).ready(function() {
+        $('.btn.btn-primary.ml-3.cari').on('click', function() {
+            $.ajax({
+                url: "<?= base_url() ?>/home/cari",
+                data: {
+                    search: $('input[name=cari]').val(),
+                },
+                type: "post",
+                success: function(data) {
+                    $('.container-hasil').html(data);
+                }
+            });
+        });
+    });
+</script>
+
 </body>
 
 </html>

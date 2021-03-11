@@ -40,4 +40,9 @@ class Home extends CI_Controller
         $this->db->where('id_jenis', $id);
         return $this->db->get('tb_jenis')->row();
     }
+    public function cari()
+    {
+        $data['buku'] = $this->Buku_models->getBukuWhereStockHabisSearch($this->input->post('search'));
+        $this->load->view('home/searchBuku', $data);
+    }
 }

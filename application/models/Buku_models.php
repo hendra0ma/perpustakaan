@@ -30,6 +30,17 @@ class Buku_models extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
+    public function getBukuWhereStockHabisSearch($data)
+    {
+        $this->db->select('*');
+        $this->db->from('tb_buku');
+        $this->db->join('tb_jenis', 'tb_jenis.id_jenis = tb_buku.id_jenis');
+
+        $this->db->like('tb_buku.nama_buku', $data);
+        $this->db->where('tb_buku.stock_buku != ', 0);
+        $query = $this->db->get();
+        return $query->result();
+    }
     public function getBukuDesc($limit)
     {
         $this->db->select('*');
