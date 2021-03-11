@@ -27,7 +27,7 @@
                             <th scope="col">Kode Buku</th>
                             <th scope="col">Nama Buku</th>
                             <th scope="col">Peminjam</th>
-                            <th scope="col">Petugas</th>
+
                             <th scope="col">Tanggal Pinjam</th>
                             <th scope="col">Tanggal Kembali</th>
                             <th scope="col">Jumlah Pinjam</th>
@@ -43,7 +43,7 @@
                                 <td><?= $data->kode_buku ?></td>
                                 <td><?= $data->nama_buku ?></td>
                                 <td><?= $data->username ?></td>
-                                <td><?= $data->nama_petugas ?></td>
+
                                 <td><?= $data->tanggal_pinjam ?></td>
                                 <td><?= $data->tanggal_kembali ?></td>
                                 <td><?= $data->jumlah_pinjam ?></td>

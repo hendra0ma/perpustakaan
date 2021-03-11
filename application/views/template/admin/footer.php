@@ -93,6 +93,12 @@
             $('.alert.alert-danger.alert-dismissible.mt-3.fade.show.text-light').fadeOut(500);
         }, 3000);
     });
+    $(document).ready(function() {
+        $('.table.datatable').DataTable();
+        setTimeout(function() {
+            $('.alert.alert-danger.alert-dismissible.mt-3.fade.show.text-light').fadeOut(500);
+        }, 3000);
+    });
 
 
     function readURL(input) {

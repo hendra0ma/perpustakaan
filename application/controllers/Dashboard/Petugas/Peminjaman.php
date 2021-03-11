@@ -30,6 +30,7 @@ class Peminjaman extends CI_Controller
     {
         $this->data['title'] = "petugas Pages";
         $this->data['dipinjam'] = $this->Peminjaman_model->getPinjams('dipinjam');
+        $this->data['dipinjamByAdmin'] = $this->Peminjaman_model->getPinjam("dipinjam");
         // var_dump($this->data['dipinjam']);die;
         $this->load->view("template/petugas/header", $this->data);
         $this->load->view("petugas/peminjaman/dipinjam", $this->data);
@@ -38,7 +39,7 @@ class Peminjaman extends CI_Controller
     public function diKembalikan()
     {
         $this->data['title'] = "petugas Pages";
-        $this->data['dikembalikan'] = $this->Peminjaman_model->getPinjams('dikembalikan');
+        $this->data['dikembalikan'] = $this->Peminjaman_model->getPinjamAll('dikembalikan');
         // var_dump($this->data['dikembalikan']);die;
         $this->load->view("template/petugas/header", $this->data);
         $this->load->view("petugas/peminjaman/dikembalikan", $this->data);
@@ -90,12 +91,14 @@ class Peminjaman extends CI_Controller
             $this->data['status'] = [
                 'status_peminjaman' => "lewatTenggangWaktu",
                 'tanggal_kembali' => date('Y-m-d'),
+                'id_petugas' => $this->data['petugas']->id_petugas
             ];
             $this->session->set_flashdata("error", 'Buku yang dipinjam telah lewat waktu tenggang');
         } else {
             $this->data['status'] = [
                 'status_peminjaman' => $status,
                 'tanggal_kembali' => date('Y-m-d'),
+                'id_petugas' => $this->data['petugas']->id_petugas
             ];
             $this->session->set_flashdata("message", 'Buku telah dikembalikan');
         }
@@ -103,8 +106,10 @@ class Peminjaman extends CI_Controller
         $this->Peminjaman_model->update($id, $this->data['status']);
         redirect('dashboard/petugas/peminjaman/dipinjam');
     }
-    // public function delete($id)
-    // {
-    //     $this->db->where('id_peminjaman');
-    // }
+    public function delete($id)
+    {
+        $this->db->where('id_peminjaman', $id);
+        $this->db->delete('tb_peminjaman');
+        redirect('dashboard/petugas/peminjaman/diKembalikan');
+    }
 }

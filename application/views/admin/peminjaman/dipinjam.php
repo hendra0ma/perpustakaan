@@ -1,5 +1,8 @@
 <div class="container">
     <div class="card">
+        <div class="card-header">
+            By Admin
+        </div>
         <div class="card-body">
             <?php if ($this->session->flashdata('message')) { ?>
                 <div class="alert alert-success alert-dismissible mt-3 fade show text-light" role="alert">
@@ -20,14 +23,14 @@
                 </div>
             <?php  } ?>
             <div class="table-responsive">
-                <table class="table table-borderede" id="datatable">
+                <table class="table" id="datatable">
                     <thead>
                         <tr>
                             <th scope="col">No</th>
                             <th scope="col">Kode Buku</th>
                             <th scope="col">Nama Buku</th>
                             <th scope="col">Peminjam</th>
-                            <th scope="col">Petugas</th>
+
                             <th scope="col">Tanggal Pinjam</th>
                             <th scope="col">Tanggal harus Kembali</th>
                             <th scope="col">Jumlah Pinjam</th>
@@ -39,6 +42,50 @@
                         <?php
                         $i = 1;
                         foreach ($dipinjam as $data) : ?>
+                            <tr>
+                                <th scope="row"><?= $i++ ?></th>
+                                <td><?= $data->kode_buku ?></td>
+                                <td><?= $data->nama_buku ?></td>
+                                <td><?= $data->username ?></td>
+                                <td><?= $data->tanggal_pinjam ?></td>
+                                <td><?= $data->tanggal_harus_kembali ?></td>
+                                <td><?= $data->jumlah_pinjam ?></td>
+                                <td>
+                                    <a href="<?= base_url() ?>dashboard/admin/peminjaman/actKembalikan/<?= $data->id_peminjaman ?>/dikembalikan" class="badge badge-success">Di Kembalikan</a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            By petugas
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table datatable">
+                    <thead>
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Kode Buku</th>
+                            <th scope="col">Nama Buku</th>
+                            <th scope="col">Peminjam</th>
+                            <th scope="col">petugas</th>
+                            <th scope="col">Tanggal Pinjam</th>
+                            <th scope="col">Tanggal harus Kembali</th>
+                            <th scope="col">Jumlah Pinjam</th>
+                            <th scope="col">Action</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $i = 1;
+                        foreach ($dipinjamBypetugas as $data) : ?>
                             <tr>
                                 <th scope="row"><?= $i++ ?></th>
                                 <td><?= $data->kode_buku ?></td>

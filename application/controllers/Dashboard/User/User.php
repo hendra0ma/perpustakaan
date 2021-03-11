@@ -22,10 +22,10 @@ class User extends CI_Controller
         // die;
 
         $this->data['title']  = 'Halaman User';
-        $this->data['buku'] = $this->Peminjaman_model->getPinjamByUserLimit(null, $this->data['user']->id_user, 10);
+        $this->data['buku'] = $this->Peminjaman_model->getPinjamBelumAcc($this->data['user']->id_user);
         // var_dump($this->data['buku']);
         // die;
-        $this->data['jumlah_dipinjam'] = count($this->Peminjaman_model->getPinjamByUsers($this->data['user']->id_user));
+        $this->data['jumlah_dipinjam'] = count($this->Peminjaman_model->getPinjamByUserDipinjam($this->data['user']->id_user));
 
         $this->load->view("template/user/header", $this->data);
         $this->load->view("user/index", $this->data);
@@ -33,8 +33,9 @@ class User extends CI_Controller
     }
     public function bukuDipinjam()
     {
-        $this->data['buku'] = $this->Peminjaman_model->getPinjamByUsers($this->data['user']->id_user);
-
+        $this->data['buku'] = $this->Peminjaman_model->getPinjamByUserDipinjam($this->data['user']->id_user);
+        // var_dump($this->data['buku']);
+        // die;
         $this->data['title']  = 'Buku Yang Dipinjam';
         $this->load->view("template/user/header", $this->data);
         $this->load->view("user/bukuDipinjam", $this->data);

@@ -28,7 +28,8 @@ class Peminjaman extends CI_Controller
     public function diPinjam()
     {
         $this->data['title'] = "Admin Pages";
-        $this->data['dipinjam'] = $this->Peminjaman_model->getPinjams('dipinjam');
+        $this->data['dipinjam'] = $this->Peminjaman_model->getPinjam('dipinjam');
+        $this->data['dipinjamBypetugas'] = $this->Peminjaman_model->getPinjams('dipinjam');
         // var_dump($this->data['dipinjam']);die;
         $this->load->view("template/admin/header", $this->data);
         $this->load->view("admin/peminjaman/dipinjam", $this->data);
@@ -37,7 +38,8 @@ class Peminjaman extends CI_Controller
     public function diKembalikan()
     {
         $this->data['title'] = "Admin Pages";
-        $this->data['dikembalikan'] = $this->Peminjaman_model->getPinjams('dikembalikan');
+        $this->data['dikembalikan'] = $this->Peminjaman_model->getPinjamAll('dikembalikan');
+        // $this->data['dikembalikanBypetugas'] = $this->Peminjaman_model->getPinjams('dikembalikan');
         // var_dump($this->data['dikembalikan']);die;
         $this->load->view("template/admin/header", $this->data);
         $this->load->view("admin/peminjaman/dikembalikan", $this->data);
@@ -47,7 +49,8 @@ class Peminjaman extends CI_Controller
     {
 
         $this->data['title'] = "Admin Pages";
-        $this->data['lewatWaktuTenggang'] = $this->Peminjaman_model->getPinjams('lewatWaktuTenggang');
+        $this->data['lewatWaktuTenggang'] = $this->Peminjaman_model->getPinjam('lewatWaktuTenggang');
+        // $this->data['lewatWaktuTenggangBypetugas'] = $this->Peminjaman_model->getPinjams('lewatWaktuTenggang');
         // var_dump($this->data['lewatWaktuTenggang']);die;
         $this->load->view("template/admin/header", $this->data);
         $this->load->view("admin/peminjaman/lewatWaktuTenggang", $this->data);
@@ -76,17 +79,25 @@ class Peminjaman extends CI_Controller
             $this->data['status'] = [
                 'status_peminjaman' => "lewatTenggangWaktu",
                 'tanggal_kembali' => date('Y-m-d'),
+                'id_petugas' => 0
             ];
             $this->session->set_flashdata("error", 'Buku yang dipinjam telah lewat waktu tenggang');
         } else {
             $this->data['status'] = [
                 'status_peminjaman' => $status,
                 'tanggal_kembali' => date('Y-m-d'),
+                'id_petugas' => 0
             ];
             $this->session->set_flashdata("message", 'Buku telah dikembalikan');
         }
 
         $this->Peminjaman_model->update($id, $this->data['status']);
         redirect('dashboard/admin/peminjaman/dipinjam');
+    }
+    public function delete($id)
+    {
+        $this->db->where('id_peminjaman', $id);
+        $this->db->delete('tb_peminjaman');
+        redirect('dashboard/admin/peminjaman/diKembalikan');
     }
 }

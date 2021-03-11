@@ -34,12 +34,13 @@
                                 <th scope="col">Nama Buku</th>
                                 <th scope="col">Gambar Buku</th>
                                 <th scope="col">Peminjam</th>
-                                <th scope="col">Petugas</th>
+
                                 <th scope="col">Tanggal Pinjam</th>
                                 <th scope="col">Tanggal Harus Kembali</th>
                                 <th scope="col">Tanggal Kembali</th>
                                 <th scope="col">Jumlah Pinjam</th>
                                 <th scope="col">status</th>
+                                <th scope="col">action</th>
 
 
                             </tr>
@@ -56,7 +57,7 @@
                                             lihat Gambar
                                         </a></td>
                                     <td><?= $data->nama_lengkap ?></td>
-                                    <td><?= $data->nama_petugas ?></td>
+
                                     <td><?= $data->tanggal_pinjam ?></td>
                                     <td><?= $data->tanggal_harus_kembali ?></td>
                                     <td><?= $data->tanggal_kembali ?></td>
@@ -73,7 +74,14 @@
                                             <div class="badge badge-success">buku telah lewat tenggang waktu</div>
                                         <?php } else echo "error"; ?>
                                     </td>
+                                    <td>
+                                        <?php if ($data->status_peminjaman == null) { ?>
+                                            <a href="<?= base_url() ?>dashboard/user/peminjaman/cancelAcc/<?= $data->id_peminjaman ?>" class="badge badge-danger">
+                                                delete
+                                            </a>
+                                        <?php } ?>
 
+                                    </td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>

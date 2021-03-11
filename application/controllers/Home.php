@@ -30,9 +30,14 @@ class Home extends CI_Controller
     public function daftarBukuPerJenis($id)
     {
         $data['buku'] = $this->Buku_models->getBukuWhereStockHabisByJenis($id);
-        $data['jenis'] = $this->db->get_where('tb_jenis', ['id_jenis', $id])->row();
+        $data['jenis'] = $this->getJenisById($id);
         $this->load->view('template/header');
         $this->load->view('home/BukuJenis', $data);
         $this->load->view('template/footer');
+    }
+    private function getJenisById($id)
+    {
+        $this->db->where('id_jenis', $id);
+        return $this->db->get('tb_jenis')->row();
     }
 }

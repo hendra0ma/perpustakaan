@@ -23,7 +23,7 @@
                             <th>Product</th>
                             <th>id data keranjang</th>
                             <th>Gambar Buku</th>
-
+                            <th>action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,7 +41,11 @@
                                         lihat Gambar
                                     </a>
                                 </td>
-
+                                <td>
+                                    <a href="<?= base_url() ?>dashboard/user/peminjaman/cancelCheckout/<?= $item['rowid'] ?>" class="badge badge-danger">
+                                        delete
+                                    </a>
+                                </td>
                             </tr>
                         <?php endforeach ?>
                     </tbody>

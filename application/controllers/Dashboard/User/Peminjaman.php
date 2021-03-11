@@ -15,9 +15,24 @@ class Peminjaman extends CI_Controller
             redirect("auth");
         }
     }
+    private function getPinjamByUser($id)
+    {
+        $this->db->where('id_user', $id);
+        $this->db->where('status_peminjaman', "dipinjam");
+        return $this->db->get('tb_peminjaman')->num_rows();
+    }
+    private function getPinjamByUserNull($id)
+    {
+        $this->db->where('id_user', $id);
+        $this->db->where('status_peminjaman', null);
+        return $this->db->get('tb_peminjaman')->num_rows();
+    }
     public function getBuku($id)
     {
-        if ($this->cart->total_items() >= 3) {
+        $jumlahPinjam =  $this->getPinjamByUser($this->data['user']->id_user) + $this->getPinjamByUserNull($this->data['user']->id_user);
+
+        $itemMax = 3 - $jumlahPinjam;
+        if ($this->cart->total_items() >= $itemMax) {
             $this->session->set_flashdata('message', 'Anda tidak boleh meminjam lebih dari 3 buku');
         } else {
             $buku = $this->Buku_models->getByIdJoin($id);
@@ -54,6 +69,17 @@ class Peminjaman extends CI_Controller
         }
         $this->cart->destroy();
         $this->db->insert_batch('tb_peminjaman', $insert);
+        redirect('dashboard/user/peminjaman/checkout');
+    }
+    public function cancelAcc($id)
+    {
+
+        $this->Peminjaman_model->delete($id);
+        redirect('dashboard/user/user');
+    }
+    public function cancelCheckout($id)
+    {
+        $this->cart->remove($id);
         redirect('dashboard/user/peminjaman/checkout');
     }
 }
