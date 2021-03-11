@@ -44,7 +44,7 @@
                                 <th scope="row"><?= $i++ ?></th>
                                 <td><?= $data->kode_buku ?></td>
                                 <td><?= $data->nama_buku ?></td>
-                                <td><?= $data->nama_lengkap ?></td>
+                                <td><?= $data->username ?></td>
                                 <td><?= $data->nama_petugas ?></td>
                                 <td><?= $data->tanggal_pinjam ?></td>
                                 <td><?= $data->tanggal_harus_kembali ?></td>

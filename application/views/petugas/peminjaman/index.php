@@ -43,13 +43,10 @@
                                 <th scope="row"><?= $i++ ?></th>
                                 <td><?= $data->kode_buku ?></td>
                                 <td><?= $data->nama_buku ?></td>
-                                <td><?= $data->nama_lengkap ?></td>
-
-
-
+                                <td><?= $data->username ?></td>
                                 <td><?= $data->jumlah_pinjam ?></td>
                                 <td>
-                                    <a href="<?= base_url() ?>dashboard/petugas/peminjaman/acc/<?= $data->id_peminjaman ?>/dipinjam" class="badge badge-primary">Accept</a>
+                                    <a href="<?= base_url() ?>dashboard/petugas/peminjaman/acc/<?= $data->id_peminjaman ?>/dipinjam/<?= $data->id_buku ?>" class="badge badge-primary">Accept</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

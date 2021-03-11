@@ -136,6 +136,18 @@
                                     </a>
                         </li>
                         <li class="nav-item">
+                            <?php if ($this->uri->segment(3) == 'peminjaman' && $this->uri->segment(4) == 'checkout') : ?>
+                                <a href="<?= base_url() ?>dashboard/user/peminjaman/checkout" class="nav-link active">
+                                <?php else : ?>
+                                    <a href="<?= base_url() ?>dashboard/user/peminjaman/checkout" class="nav-link">
+                                    <?php endif; ?>
+                                    <i class="nav-icon fas fa-shopping-cart"></i>
+                                    <p>
+                                        Checkout Page
+                                    </p>
+                                    </a>
+                        </li>
+                        <li class="nav-item">
                             <?php if ($this->uri->segment(3) == 'user' && $this->uri->segment(4) == 'bukuDipinjam') : ?>
                                 <a href="<?= base_url() ?>dashboard/user/user/bukuDipinjam" class="nav-link active">
                                 <?php else : ?>

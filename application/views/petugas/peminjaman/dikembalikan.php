@@ -43,14 +43,12 @@
                                 <th scope="row"><?= $i++ ?></th>
                                 <td><?= $data->kode_buku ?></td>
                                 <td><?= $data->nama_buku ?></td>
-                                <td><?= $data->nama_lengkap ?></td>
+                                <td><?= $data->username ?></td>
                                 <td><?= $data->nama_petugas ?></td>
                                 <td><?= $data->tanggal_pinjam ?></td>
                                 <td><?= $data->tanggal_kembali ?></td>
                                 <td><?= $data->jumlah_pinjam ?></td>
                                 <td>
-
-                                    <a href="<?= base_url() ?>dashboard/petugas/peminjaman/delete/<?= $data->id_peminjaman ?>" class="badge badge-danger" onclick="return confirm('yakin?')">Delete</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

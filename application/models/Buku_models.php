@@ -7,6 +7,47 @@ class Buku_models extends CI_Model
         $this->db->select('*');
         $this->db->from('tb_buku');
         $this->db->join('tb_jenis', 'tb_jenis.id_jenis = tb_buku.id_jenis');
+        // $this->db->where('tb_buku.');
+        $query = $this->db->get();
+        return $query->result();
+    }
+    public function getBukuWhereStockHabisByJenis($id)
+    {
+        $this->db->select('*');
+        $this->db->from('tb_buku');
+        $this->db->join('tb_jenis', 'tb_jenis.id_jenis = tb_buku.id_jenis');
+        $this->db->where('tb_buku.id_jenis', $id);
+        $this->db->where('tb_buku.stock_buku != ', 0);
+        $query = $this->db->get();
+        return $query->result();
+    }
+    public function getBukuWhereStockHabis()
+    {
+        $this->db->select('*');
+        $this->db->from('tb_buku');
+        $this->db->join('tb_jenis', 'tb_jenis.id_jenis = tb_buku.id_jenis');
+        $this->db->where('tb_buku.stock_buku != ', 0);
+        $query = $this->db->get();
+        return $query->result();
+    }
+    public function getBukuDesc($limit)
+    {
+        $this->db->select('*');
+        $this->db->from('tb_buku');
+        $this->db->join('tb_jenis', 'tb_jenis.id_jenis = tb_buku.id_jenis');
+        $this->db->order_by('id_buku', 'ASC');
+        $this->db->limit($limit);
+        $query = $this->db->get();
+        return $query->result();
+    }
+    public function getBukuDescStockHabis($limit)
+    {
+        $this->db->select('*');
+        $this->db->from('tb_buku');
+        $this->db->join('tb_jenis', 'tb_jenis.id_jenis = tb_buku.id_jenis');
+        $this->db->order_by('id_buku', 'ASC');
+        $this->db->where('tb_buku.stock_buku != ', 0);
+        $this->db->limit($limit);
         $query = $this->db->get();
         return $query->result();
     }
@@ -23,6 +64,16 @@ class Buku_models extends CI_Model
         $this->db->select('*');
         $this->db->from('tb_buku');
         $this->db->join('tb_jenis', 'tb_jenis.id_jenis = tb_buku.id_jenis');
+        $this->db->limit($data);
+        $query = $this->db->get();
+        return $query->result();
+    }
+    public function getBukuWhereStockHabisLimit($data)
+    {
+        $this->db->select('*');
+        $this->db->from('tb_buku');
+        $this->db->join('tb_jenis', 'tb_jenis.id_jenis = tb_buku.id_jenis');
+        $this->db->where('tb_buku.stock_buku != ', 0);
         $this->db->limit($data);
         $query = $this->db->get();
         return $query->result();

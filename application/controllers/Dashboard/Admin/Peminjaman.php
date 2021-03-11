@@ -28,7 +28,7 @@ class Peminjaman extends CI_Controller
     public function diPinjam()
     {
         $this->data['title'] = "Admin Pages";
-        $this->data['dipinjam'] = $this->Peminjaman_model->getPinjam('dipinjam');
+        $this->data['dipinjam'] = $this->Peminjaman_model->getPinjams('dipinjam');
         // var_dump($this->data['dipinjam']);die;
         $this->load->view("template/admin/header", $this->data);
         $this->load->view("admin/peminjaman/dipinjam", $this->data);
@@ -37,7 +37,7 @@ class Peminjaman extends CI_Controller
     public function diKembalikan()
     {
         $this->data['title'] = "Admin Pages";
-        $this->data['dikembalikan'] = $this->Peminjaman_model->getPinjam('dikembalikan');
+        $this->data['dikembalikan'] = $this->Peminjaman_model->getPinjams('dikembalikan');
         // var_dump($this->data['dikembalikan']);die;
         $this->load->view("template/admin/header", $this->data);
         $this->load->view("admin/peminjaman/dikembalikan", $this->data);
@@ -47,7 +47,7 @@ class Peminjaman extends CI_Controller
     {
 
         $this->data['title'] = "Admin Pages";
-        $this->data['lewatWaktuTenggang'] = $this->Peminjaman_model->getPinjam('lewatWaktuTenggang');
+        $this->data['lewatWaktuTenggang'] = $this->Peminjaman_model->getPinjams('lewatWaktuTenggang');
         // var_dump($this->data['lewatWaktuTenggang']);die;
         $this->load->view("template/admin/header", $this->data);
         $this->load->view("admin/peminjaman/lewatWaktuTenggang", $this->data);

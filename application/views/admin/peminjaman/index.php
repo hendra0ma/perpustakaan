@@ -43,7 +43,7 @@
                                 <th scope="row"><?= $i++ ?></th>
                                 <td><?= $data->kode_buku ?></td>
                                 <td><?= $data->nama_buku ?></td>
-                                <td><?= $data->nama_lengkap ?></td>
+                                <td><?= $data->username ?></td>
 
 
 

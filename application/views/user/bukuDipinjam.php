@@ -23,7 +23,6 @@
                                 <th scope="col">Nama Buku</th>
                                 <th scope="col">Gambar Buku</th>
                                 <th scope="col">Peminjam</th>
-                                <th scope="col">Petugas</th>
                                 <th scope="col">Tanggal Pinjam</th>
                                 <th scope="col">Tanggal Harus Kembali</th>
                                 <th scope="col">Tanggal Kembali</th>
@@ -43,11 +42,15 @@
                                     <td><a href="#showModal" data-toggle="modal" class="btn btn-success lihat-gambar" data-id="<?= $data->id_buku ?>">
                                             lihat Gambar
                                         </a></td>
+                                    <?php $dataPinjam = ($data->tanggal_pinjam == "") ? "Belum di acc" : $data->tanggal_pinjam; ?>
+                                    <?php $dataharus_kembali = ($data->tanggal_harus_kembali == "") ? "Belum di acc" : $data->tanggal_harus_kembali; ?>
+                                    <?php $datakembali = ($data->tanggal_kembali == "") ? "Belum di acc" : $data->tanggal_kembali; ?>
+
+
                                     <td><?= $data->nama_lengkap ?></td>
-                                    <td><?= $data->nama_petugas ?></td>
-                                    <td><?= $data->tanggal_pinjam ?></td>
-                                    <td><?= $data->tanggal_harus_kembali ?></td>
-                                    <td><?= $data->tanggal_kembali ?></td>
+                                    <td><?= $dataPinjam ?></td>
+                                    <td><?= $dataharus_kembali ?></td>
+                                    <td><?= $datakembali ?></td>
                                     <td><?= $data->jumlah_pinjam ?></td>
                                     <td>
                                         <?php

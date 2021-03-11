@@ -2,7 +2,7 @@
 <div class="subheader bg-cover dark-overlay dark-overlay-2" style="background-image: url('<?= base_url('assets/template') ?>/assets/img/subheader.jpg')">
     <div class="container">
         <div class="subheader-inner">
-            <h1>Books</h1>
+            <h1>Books By <?= $jenis->nama_jenis ?></h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -22,7 +22,7 @@
 
         <div class="row">
 
-            <div class="col-lg-8">
+            <div class="col-lg-12">
 
                 <!-- Toggle & Filter Start -->
                 <div class="filter-wrapper">
@@ -89,28 +89,7 @@
             </div>
 
             <!-- Sidebar Start -->
-            <div class="col-lg-4">
 
-                <div class="sidebar">
-
-                    <div class="sidebar-widget">
-                        <h5>Top Jenis Buku</h5>
-                        <?php foreach ($jenis_buku as $data) : ?>
-                            <article class="media card">
-
-                                <div class="media-body  card-body">
-                                    <h6> <a href="<?= base_url('home/daftarBukuPerJenis/' . $data->id_jenis) ?>"><?= $data->nama_jenis ?></a> </h6>
-                                    <div class="ct-rating">
-                                    </div>
-
-                                </div>
-                            </article>
-                        <?php endforeach; ?>
-                    </div>
-
-                </div>
-
-            </div>
             <!-- Sidebar End -->
 
         </div>

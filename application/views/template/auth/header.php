@@ -41,10 +41,10 @@
                     <a href="<?= base_url('home/index') ?>">Home</a>
                 </li>
                 <li class="menu-item">
-                    <a href="<?= base_url('home/index') ?>">Gallery</a>
+                    <a href="<?= base_url('home/gallery') ?>">Gallery</a>
                 </li>
                 <li class="menu-item">
-                    <a href="<?= base_url('home/index') ?>">Contact Us</a>
+                    <a href="<?= base_url('home/contactUs') ?>">Contact Us</a>
                 </li>
                 <li class="menu-item menu-item-has-children">
                     <a href="#">Member</a>
@@ -80,10 +80,10 @@
                         <a href="<?= base_url('home/index') ?>">Home</a>
                     </li>
                     <li class="menu-item">
-                        <a href="<?= base_url('home/index') ?>">Gallery</a>
+                        <a href="<?= base_url('home/gallery') ?>">Gallery</a>
                     </li>
                     <li class="menu-item">
-                        <a href="<?= base_url('home/index') ?>">Contact Us</a>
+                        <a href="<?= base_url('home/contactUs') ?>">Contact Us</a>
                     </li>
                     <li class="menu-item menu-item-has-children">
                         <a href="#">Member</a>
