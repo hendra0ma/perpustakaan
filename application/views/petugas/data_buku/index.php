@@ -9,7 +9,7 @@
                     <a href="<?= base_url('dashboard/petugas/export/generateListBuku') ?>" class="btn btn-light"><i class="fas fa-file"></i> Export PDF</a>
                 </div>
                 <div class="col-lg-2 col-md-2">
-                    <a href="<?= base_url() ?>dashboard/petugas/petugas/tambahBuku" class="btn btn-primary mb-2 mt-2 float-right">
+                    <a href="<?= base_url() ?>dashboard/petugas/petugas/tambahBuku" class="btn btn-primary  float-right">
                         tambah buku
                     </a>
                 </div>
