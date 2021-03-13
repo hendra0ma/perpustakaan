@@ -1,4 +1,12 @@
 <div class="container">
+    <div class="row mb-2 mt-3">
+        <div class="col-lg-2  col-md-2">
+            <a href="#" class="btn btn-warning" onclick="return window.print()"><i class="fas fa-file-download"></i> Print</a>
+        </div>
+        <div class="col-lg-2 col-md-2">
+            <a href="<?= base_url('dashboard/petugas/export/generateBukuDipinjam') ?>" class="btn btn-light"><i class="fas fa-file"></i> Export PDF</a>
+        </div>
+    </div>
     <div class="card">
         <div class="card-header">
             by Petugas

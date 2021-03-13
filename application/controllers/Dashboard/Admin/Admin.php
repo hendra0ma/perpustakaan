@@ -3,7 +3,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Admin extends CI_Controller
 {
-    public $data;
+    private $data;
+
     public function __construct()
     {
         parent::__construct();
@@ -28,7 +29,6 @@ class Admin extends CI_Controller
         $this->load->view("admin/index", $this->data);
         $this->load->view("template/admin/footer");
     }
-
 
 
 
@@ -369,6 +369,8 @@ class Admin extends CI_Controller
     // }
 
     // akhir pengelolaan buku
+
+
 
 
 

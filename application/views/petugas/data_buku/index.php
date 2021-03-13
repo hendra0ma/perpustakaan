@@ -1,9 +1,20 @@
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <a href="<?= base_url() ?>dashboard/petugas/petugas/tambahBuku" class="btn btn-primary mb-2 mt-2 float-right">
-                tambah buku
-            </a>
+            <div class="row mb-2 mt-3">
+                <div class="col-lg-2  col-md-2">
+                    <a href="#" class="btn btn-warning" onclick="return window.print()"><i class="fas fa-file-download"></i> Print</a>
+                </div>
+                <div class="col-lg-2 col-md-2">
+                    <a href="<?= base_url('dashboard/petugas/export/generateListBuku') ?>" class="btn btn-light"><i class="fas fa-file"></i> Export PDF</a>
+                </div>
+                <div class="col-lg-2 col-md-2">
+                    <a href="<?= base_url() ?>dashboard/petugas/petugas/tambahBuku" class="btn btn-primary mb-2 mt-2 float-right">
+                        tambah buku
+                    </a>
+                </div>
+            </div>
+
             <div class="table-responsive">
                 <table class="table table-borderede" id="datatable">
                     <thead>

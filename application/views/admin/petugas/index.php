@@ -3,7 +3,6 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card">
-
                     <div class="card-body">
                         <?php if ($this->session->flashdata('message')) : ?>
                             <div class="alert alert-success alert-dismissible text-light fade show" role="alert">
@@ -13,6 +12,11 @@
                                 </button>
                             </div>
                         <?php endif; ?>
+                        <div class="row mb-2 mt-3">
+                            <div class="col-lg-2  col-md-2">
+                                <a href="#" class="btn btn-warning" onclick="return window.print()"><i class="fas fa-file-download"></i> Print</a>
+                            </div>
+                        </div>
                         <div class="table-responsive">
                             <table class="table" id="datatable">
                                 <thead class="thead-dark">

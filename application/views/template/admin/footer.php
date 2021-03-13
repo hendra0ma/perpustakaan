@@ -86,6 +86,23 @@
 <!-- <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jq-3.3.1/dt-1.10.23/r-2.2.7/datatables.min.js"></script>
  -->
 <script src="<?= base_url('assets/dashboard/datatables/js/datatables.js') ?>"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script> -->
+
+
+<script>
+    var doc = new jsPDF();
+
+
+    $('.convert').click(function() {
+        const nama = $(this).data('convert');
+        doc.fromHTML($('.table.datatable').html(), 15, 15, {
+            'width': 170,
+        });
+        doc.save(nama + '.pdf');
+    });
+</script>
+
+
 <script>
     $(document).ready(function() {
         $('#datatable').DataTable();
