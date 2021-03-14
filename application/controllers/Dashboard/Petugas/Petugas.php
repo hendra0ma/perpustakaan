@@ -40,6 +40,7 @@ class Petugas extends CI_Controller
     {
         $this->data['title'] = "Pendataan Buku";
         $this->data['buku'] = $this->Buku_models->getBuku();
+
         $this->load->view("template/petugas/header", $this->data);
         $this->load->view("petugas/data_buku/index", $this->data);
         $this->load->view("template/petugas/footer");
@@ -97,7 +98,6 @@ class Petugas extends CI_Controller
                 $this->load->view("petugas/data_buku/tambahBuku", $this->data);
                 $this->load->view("template/petugas/footer");
             } else {
-
                 $config['upload_path'] = './assets/dashboard/docs/assets/img/upload/';
                 $config['allowed_types'] = 'jpg|jpeg|png|gif';
                 $config['max_size'] = 2000;

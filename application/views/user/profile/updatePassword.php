@@ -34,7 +34,7 @@
                     <div class="col-md-12">
                         <div class="card card-outline card-primary">
                             <div class="card-header text-center">
-                                <a href="http://localhost/sistemLelang/dashboard/user/user" class="h3"><b>Ganti Password</b></a>
+                                <a href="#" class="h3"><b>Ganti Password</b></a>
                             </div>
                             <div class="card-body" style="display: block;">
 

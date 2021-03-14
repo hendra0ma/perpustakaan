@@ -51,6 +51,7 @@ class Peminjaman extends CI_Controller
         $this->data['title'] = "petugas Pages";
         $this->data['lewatWaktuTenggang'] = $this->Peminjaman_model->getPinjams('lewatTenggangWaktu');
         // var_dump($this->data['lewatWaktuTenggang']);die;
+
         $this->load->view("template/petugas/header", $this->data);
         $this->load->view("petugas/peminjaman/lewatWaktuTenggang", $this->data);
         $this->load->view("template/petugas/footer"); # code...
