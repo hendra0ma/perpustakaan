@@ -2,14 +2,17 @@
 
 class Peminjaman_model extends CI_Model
 {
-    public function getPinjam($whereStatus = NULL)
+    public function getPinjam($whereStatus = NULL, $id_petugas = 0)
     {
         $this->db->select("*");
         $this->db->from("tb_peminjaman");
         $this->db->join('tb_user', 'tb_user.id_user =  tb_peminjaman.id_user');
-        // $this->db->join('tb_petugas', 'tb_petugas.id_petugas =  tb_peminjaman.id_petugas');
+
         $this->db->join('tb_buku', 'tb_buku.id_buku =  tb_peminjaman.id_buku');
-        $this->db->where('tb_peminjaman.id_petugas', 0);
+        // $this->db->where('tb_peminjaman.id_petugas', 0);
+        if ($id_petugas != 0) {
+            $this->db->join('tb_petugas', 'tb_petugas.id_petugas =  tb_peminjaman.id_petugas');
+        }
         if ($whereStatus != null)
             $this->db->where('tb_peminjaman.status_peminjaman', $whereStatus);
         else
@@ -23,6 +26,7 @@ class Peminjaman_model extends CI_Model
         $this->db->join('tb_petugas', 'tb_petugas.id_petugas =  tb_peminjaman.id_petugas');
         $this->db->join('tb_user', 'tb_user.id_user =  tb_peminjaman.id_user');
         $this->db->join('tb_buku', 'tb_buku.id_buku =  tb_peminjaman.id_buku');
+
         if ($whereStatus != null)
             $this->db->where('tb_peminjaman.status_peminjaman', $whereStatus);
         else

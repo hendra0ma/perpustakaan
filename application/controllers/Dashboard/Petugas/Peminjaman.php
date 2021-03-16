@@ -48,8 +48,9 @@ class Peminjaman extends CI_Controller
     public function waktuTenggang()
     {
 
-        $this->data['title'] = "petugas Pages";
-        $this->data['lewatWaktuTenggang'] = $this->Peminjaman_model->getPinjams('lewatTenggangWaktu');
+        $this->data['title'] = "Admin Pages";
+        $this->data['lewatWaktuTenggang'] = $this->Peminjaman_model->getPinjam('lewatTenggangWaktu', $this->data['petugas']->id_petugas);
+        error_reporting(0);
         // var_dump($this->data['lewatWaktuTenggang']);die;
 
         $this->load->view("template/petugas/header", $this->data);
@@ -106,6 +107,17 @@ class Peminjaman extends CI_Controller
 
         $this->Peminjaman_model->update($id, $this->data['status']);
         redirect('dashboard/petugas/peminjaman/dipinjam');
+    }
+    public function kembalikanLewatWaktuTenggang($id_peminjaman, $status)
+    {
+        $this->data['status'] = [
+            'status_peminjaman' => $status,
+            'tanggal_kembali' => date('Y-m-d'),
+            'id_petugas' => $this->data['petugas']->id_petugas
+        ];
+        $this->Peminjaman_model->update($id_peminjaman, $this->data['status']);
+        $this->session->set_flashdata("message", 'Buku telah dikembalikan');
+        redirect('dashboard/petugas/peminjaman/waktuTenggang');
     }
     public function delete($id)
     {

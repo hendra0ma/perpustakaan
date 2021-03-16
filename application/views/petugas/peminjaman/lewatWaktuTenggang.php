@@ -59,7 +59,7 @@
                                 <td><?= $data->tanggal_kembali ?></td>
                                 <td><?= $data->jumlah_pinjam ?></td>
                                 <td>
-                                    <a href="<?= base_url() ?>dashboard/petugas/peminjaman/actKembalikan/<?= $data->id_peminjaman ?>" class="badge badge-success">Di Kembalikan</a>
+                                    <a href="<?= base_url() ?>dashboard/petugas/peminjaman/kembalikanLewatWaktuTenggang/<?= $data->id_peminjaman ?>/dikembalikan/" class="badge badge-success">Di Kembalikan</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
