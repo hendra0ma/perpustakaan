@@ -102,38 +102,7 @@
                 </ul>
 
                 <div class="header-controls">
-                    <ul class="header-controls-inner">
-                        <li class="cart-dropdown-wrapper cart-trigger">
-                            <i class="flaticon-shopping-basket"></i>
-                            <ul class="cart-dropdown">
-                                <li class="cart-item">
-                                    <img src="<?= base_url('assets/template') ?>/assets/img/products/1.png" alt="product">
-                                    <div class="cart-item-body">
-                                        <a href="#">Notebook</a>
-                                        <span class="custom-secondary">2x 18.00$</span>
-                                    </div>
-                                </li>
-                                <li class="cart-item">
-                                    <img src="<?= base_url('assets/template') ?>/assets/img/products/2.png" alt="product">
-                                    <div class="cart-item-body">
-                                        <a href="#">Nib Pen </a>
-                                        <span class="custom-secondary">1x 24.25$</span>
-                                    </div>
-                                </li>
-                                <li class="cart-subtotal">
-                                    <p> <strong>Subtotal: </strong> 54.25$</p>
-                                </li>
-                                <li class="cart-buttons">
-                                    <a href="checkout.html" class="btn-custom primary btn-sm shadow-none">Checkout</a>
-                                    <a href="cart.html" class="btn-custom secondary btn-sm shadow-none">View Cart</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="search-dropdown-wrapper search-trigger">
-                            <i class="flaticon-magnifying-glass"></i>
-                        </li>
-                    </ul>
-                    <!-- Toggler -->
+
                     <div class="aside-toggler aside-trigger">
                         <span></span>
                         <span></span>
