@@ -41,8 +41,12 @@ class Peminjaman extends CI_Controller
                 'qty'     => 1,
                 'price' => 0,
                 'name'    => $buku->nama_buku,
-                'option' => ['gambar_buku' => $buku->gambar_buku, 'id_buku' => $buku->id_buku]
+                'option' => [
+                    'gambar_buku' => $buku->gambar_buku,
+                    'id_buku' => $buku->id_buku
+                ]
             );
+
             $this->cart->insert($data);
             $this->session->set_flashdata('message', 'Berhasil menambahkan buku ke keranjang');
         }
